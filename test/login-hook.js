@@ -31,7 +31,7 @@ describe("Automation Test Login - Belajar Bareng", function () {
         await driver.get("https://belajar-bareng.onrender.com/");
     });
 
-    // TEST 1: Login dengan data benar
+    // TEST 1: Login dengan username dan password benar
     it("Login berhasil dengan username dan password benar", async function () {
         await driver.findElement(
             By.css('[data-testid="username-input"]')
@@ -45,10 +45,7 @@ describe("Automation Test Login - Belajar Bareng", function () {
             By.css('[data-testid="login-button"]')
         ).click();
 
-        await driver.wait(
-            until.urlContains("/users"),
-            10000
-        );
+        await driver.wait(until.urlContains("/users"), 10000);
 
         assert.ok(
             (await driver.getCurrentUrl()).includes("/users"),
@@ -142,7 +139,15 @@ describe("Automation Test Login - Belajar Bareng", function () {
         );
     });
 
-    // HOOK 3: Menutup browser setelah semua test
+    // HOOK 3: Dijalankan setelah setiap test
+    afterEach(async function () {
+        if (this.currentTest) {
+            console.log("Test selesai:", this.currentTest.title);
+            console.log("Status:", this.currentTest.state);
+        }
+    });
+
+    // HOOK 4: Menutup browser setelah semua test
     after(async function () {
         if (driver) {
             await driver.quit();
