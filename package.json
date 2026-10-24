@@ -1,0 +1,18 @@
+{
+  "name": "sesi10",
+  "version": "1.0.0",
+  "description": "",
+  "main": "login-hook.js",
+  "scripts": {
+    "test": "mocha test/login-hook.js --timeout 60000 --reporter mochawesome --reporter-options reportDir=mochawesome-report-login,reportFilename=report-login,html=true,json=true"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "mocha": "^12.0.3",
+    "mochawesome": "^8.1.1",
+    "selenium-webdriver": "^4.51.0"
+  }
+}
