@@ -1,4 +1,3 @@
-
 const { Builder, By, until } = require("selenium-webdriver");
 const assert = require("assert");
 const chrome = require("selenium-webdriver/chrome");
@@ -8,7 +7,7 @@ describe("Automation Test Login - Belajar Bareng", function () {
 
     let driver;
 
-    // HOOK 1: Membuka browser sebelum semua test
+    // Membuka browser sebelum semua test
     before(async function () {
         const options = new chrome.Options();
 
@@ -26,7 +25,7 @@ describe("Automation Test Login - Belajar Bareng", function () {
             .build();
     });
 
-    // HOOK 2: Membuka halaman login sebelum setiap test
+    // Membuka halaman login sebelum setiap test
     beforeEach(async function () {
         await driver.get("https://belajar-bareng.onrender.com/");
     });
