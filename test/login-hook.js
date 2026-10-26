@@ -138,7 +138,7 @@ describe("Automation Test Login - Belajar Bareng", function () {
         );
     });
 
-    // HOOK 3: Dijalankan setelah setiap test
+    // Dijalankan setelah setiap test
     afterEach(async function () {
         if (this.currentTest) {
             console.log("Test selesai:", this.currentTest.title);
@@ -146,7 +146,7 @@ describe("Automation Test Login - Belajar Bareng", function () {
         }
     });
 
-    // HOOK 4: Menutup browser setelah semua test
+    // Menutup browser setelah semua test
     after(async function () {
         if (driver) {
             await driver.quit();
