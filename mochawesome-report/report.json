@@ -1,0 +1,253 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-10-26T16:43:08.355Z",
+    "end": "2026-10-26T16:43:17.585Z",
+    "duration": 9230,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "17d97d3f-33bc-4084-aec0-3ea55d669bba",
+      "title": "",
+      "fullFile": "C:\\Users\\nurro\\OneDrive\\Documents\\belajarQA\\Sesi10\\test\\login-hook.js",
+      "file": "\\test\\login-hook.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ac91662b-d6ff-4882-9971-3e326ea1cb58",
+          "title": "Automation Test Login - Belajar Bareng",
+          "fullFile": "C:\\Users\\nurro\\OneDrive\\Documents\\belajarQA\\Sesi10\\test\\login-hook.js",
+          "file": "\\test\\login-hook.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Automation Test Login - Belajar Bareng\"",
+              "fullTitle": "Automation Test Login - Belajar Bareng \"before all\" hook in \"Automation Test Login - Belajar Bareng\"",
+              "timedOut": false,
+              "duration": 2187,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const options = new chrome.Options();\noptions.addArguments(\"--disable-features=PasswordLeakDetection\");\noptions.setUserPreferences({\n    credentials_enable_service: false,\n    \"profile.password_manager_enabled\": false,\n    \"profile.password_manager_leak_detection\": false\n});\ndriver = await new Builder()\n    .forBrowser(\"chrome\")\n    .setChromeOptions(options)\n    .build();",
+              "err": {},
+              "uuid": "f4a71253-4061-4b2b-9a15-de07e29cdfe6",
+              "parentUUID": "ac91662b-d6ff-4882-9971-3e326ea1cb58",
+              "isHook": true,
+              "skipped": false
+            },
+            {
+              "title": "\"before each\" hook in \"Automation Test Login - Belajar Bareng\"",
+              "fullTitle": "Automation Test Login - Belajar Bareng \"before each\" hook in \"Automation Test Login - Belajar Bareng\"",
+              "timedOut": false,
+              "duration": 562,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"https://belajar-bareng.onrender.com/\");",
+              "err": {},
+              "uuid": "3e2b12a0-b055-4a9a-97f3-8d293be26769",
+              "parentUUID": "ac91662b-d6ff-4882-9971-3e326ea1cb58",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Automation Test Login - Belajar Bareng\"",
+              "fullTitle": "Automation Test Login - Belajar Bareng \"after all\" hook in \"Automation Test Login - Belajar Bareng\"",
+              "timedOut": false,
+              "duration": 56,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (driver) {\n    await driver.quit();\n}",
+              "err": {},
+              "uuid": "00ecb9db-0de5-4164-8185-15d325d1f2a4",
+              "parentUUID": "ac91662b-d6ff-4882-9971-3e326ea1cb58",
+              "isHook": true,
+              "skipped": false
+            },
+            {
+              "title": "\"after each\" hook in \"Automation Test Login - Belajar Bareng\"",
+              "fullTitle": "Automation Test Login - Belajar Bareng \"after each\" hook in \"Automation Test Login - Belajar Bareng\"",
+              "timedOut": false,
+              "duration": 0,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (this.currentTest) {\n    console.log(\"Test selesai:\", this.currentTest.title);\n    console.log(\"Status:\", this.currentTest.state);\n}",
+              "err": {},
+              "uuid": "f94549e8-6f35-4f49-a547-dc2a06676fd4",
+              "parentUUID": "ac91662b-d6ff-4882-9971-3e326ea1cb58",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Login berhasil dengan username dan password benar",
+              "fullTitle": "Automation Test Login - Belajar Bareng Login berhasil dengan username dan password benar",
+              "timedOut": false,
+              "duration": 862,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.findElement(\n    By.css('[data-testid=\"username-input\"]')\n).sendKeys(\"admin\");\nawait driver.findElement(\n    By.css('[data-testid=\"password-input\"]')\n).sendKeys(\"admin\");\nawait driver.findElement(\n    By.css('[data-testid=\"login-button\"]')\n).click();\nawait driver.wait(until.urlContains(\"/users\"), 10000);\nassert.ok(\n    (await driver.getCurrentUrl()).includes(\"/users\"),\n    \"Login seharusnya berhasil\"\n);",
+              "err": {},
+              "uuid": "fc0cb63b-b11e-451a-801f-05b5b46445d7",
+              "parentUUID": "ac91662b-d6ff-4882-9971-3e326ea1cb58",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login gagal dengan password salah",
+              "fullTitle": "Automation Test Login - Belajar Bareng Login gagal dengan password salah",
+              "timedOut": false,
+              "duration": 650,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.findElement(\n    By.css('[data-testid=\"username-input\"]')\n).sendKeys(\"admin\");\nawait driver.findElement(\n    By.css('[data-testid=\"password-input\"]')\n).sendKeys(\"salah123\");\nawait driver.findElement(\n    By.css('[data-testid=\"login-button\"]')\n).click();\nawait driver.sleep(500);\nassert.ok(\n    !(await driver.getCurrentUrl()).includes(\"/users\"),\n    \"Login seharusnya ditolak\"\n);",
+              "err": {},
+              "uuid": "10a7647c-e0f7-490d-9de1-76707723240c",
+              "parentUUID": "ac91662b-d6ff-4882-9971-3e326ea1cb58",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login gagal dengan username salah",
+              "fullTitle": "Automation Test Login - Belajar Bareng Login gagal dengan username salah",
+              "timedOut": false,
+              "duration": 659,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.findElement(\n    By.css('[data-testid=\"username-input\"]')\n).sendKeys(\"user_salah\");\nawait driver.findElement(\n    By.css('[data-testid=\"password-input\"]')\n).sendKeys(\"admin\");\nawait driver.findElement(\n    By.css('[data-testid=\"login-button\"]')\n).click();\nawait driver.sleep(500);\nassert.ok(\n    !(await driver.getCurrentUrl()).includes(\"/users\"),\n    \"Login seharusnya ditolak\"\n);",
+              "err": {},
+              "uuid": "5ccf380a-98fc-4935-8310-1777ec30d7d0",
+              "parentUUID": "ac91662b-d6ff-4882-9971-3e326ea1cb58",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login gagal jika username kosong",
+              "fullTitle": "Automation Test Login - Belajar Bareng Login gagal jika username kosong",
+              "timedOut": false,
+              "duration": 114,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.findElement(\n    By.css('[data-testid=\"password-input\"]')\n).sendKeys(\"admin\");\nawait driver.findElement(\n    By.css('[data-testid=\"login-button\"]')\n).click();\nconst username = await driver.findElement(\n    By.css('[data-testid=\"username-input\"]')\n);\nassert.strictEqual(\n    await username.getAttribute(\"validationMessage\"),\n    \"Please fill out this field.\",\n    \"Validasi username seharusnya muncul\"\n);",
+              "err": {},
+              "uuid": "a0bf9cc8-39a6-4d71-a733-03b33b7c7dd1",
+              "parentUUID": "ac91662b-d6ff-4882-9971-3e326ea1cb58",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login gagal jika password kosong",
+              "fullTitle": "Automation Test Login - Belajar Bareng Login gagal jika password kosong",
+              "timedOut": false,
+              "duration": 99,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.findElement(\n    By.css('[data-testid=\"username-input\"]')\n).sendKeys(\"admin\");\nawait driver.findElement(\n    By.css('[data-testid=\"login-button\"]')\n).click();\nconst password = await driver.findElement(\n    By.css('[data-testid=\"password-input\"]')\n);\nassert.strictEqual(\n    await password.getAttribute(\"validationMessage\"),\n    \"Please fill out this field.\",\n    \"Validasi password seharusnya muncul\"\n);",
+              "err": {},
+              "uuid": "43a1012d-5873-43de-baa0-ad475be45708",
+              "parentUUID": "ac91662b-d6ff-4882-9971-3e326ea1cb58",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "fc0cb63b-b11e-451a-801f-05b5b46445d7",
+            "10a7647c-e0f7-490d-9de1-76707723240c",
+            "5ccf380a-98fc-4935-8310-1777ec30d7d0",
+            "a0bf9cc8-39a6-4d71-a733-03b33b7c7dd1",
+            "43a1012d-5873-43de-baa0-ad475be45708"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2384,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 60000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 60000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "12.0.3"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.1.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report",
+        "reportFilename": "report"
+      },
+      "version": "6.3.2"
+    }
+  }
+}
